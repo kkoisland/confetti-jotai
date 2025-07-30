@@ -13,7 +13,8 @@
     "jotai": "^2.12.5",
     "react": "^19.1.0",
     "react-confetti": "^6.4.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-use": "^17.6.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
