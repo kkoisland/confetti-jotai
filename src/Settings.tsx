@@ -1,7 +1,13 @@
-import { useSetAtom } from "jotai";
-import { setColorsAtom, setGravityAtom, setNumberOfPiecesAtom } from "./store";
+import { useSetAtom, useAtomValue } from "jotai";
+import {
+  setColorsAtom,
+  setGravityAtom,
+  setNumberOfPiecesAtom,
+  colorsAtom,
+} from "./store";
 
 export const Settings = () => {
+  const colors = useAtomValue(colorsAtom);
   const setColors = useSetAtom(setColorsAtom);
   const setGravity = useSetAtom(setGravityAtom);
   const setNumberOfPieces = useSetAtom(setNumberOfPiecesAtom);
@@ -24,6 +30,11 @@ export const Settings = () => {
               type="radio"
               name="color"
               value={value}
+              checked={
+                value === ""
+                  ? colors.length === 0
+                  : JSON.stringify(colors) === JSON.stringify(palettes[value])
+              }
               onChange={() => {
                 setColors(palettes[value] ?? []);
               }}
